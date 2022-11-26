@@ -8,7 +8,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import org.springframework.stereotype.Repository;
+@Repository
 @Component
 public class UserRepository implements SimpleSpringRepository<User, Long> {
     @Autowired
@@ -16,7 +17,7 @@ public class UserRepository implements SimpleSpringRepository<User, Long> {
 
     @Override
     public List<User> findAll() {
-        String query = "SELECT *\n" + "FROM users;";
+        String query = "SELECT *\n" + "FROM userss;";
         List<User> userList = new ArrayList<>();
 
         try (Statement statement = this.connection.createStatement()) {
@@ -40,7 +41,7 @@ public class UserRepository implements SimpleSpringRepository<User, Long> {
 
     @Override
     public Optional<User> findById(Long userId) {
-        String query = "SELECT *\n" + "FROM users\n" + "WHERE id = ?;";
+        String query = "SELECT *\n" + "FROM userss\n" + "WHERE id = ?;";
         User user = null;
 
         try (PreparedStatement preparedStatement = this.connection.prepareStatement(query)) {
@@ -65,7 +66,7 @@ public class UserRepository implements SimpleSpringRepository<User, Long> {
 
     @Override
     public void save(User user) {
-        String query = "INSERT INTO public.users(\n" +
+        String query = "INSERT INTO public.userss(\n" +
                 "\tfirstname, lastname)\n" +
                 "\tVALUES (?, ?);";
 
