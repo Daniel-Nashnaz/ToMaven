@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 @Configuration
 public class DBConnectionConfiguration {
+
     @Value("${simple.spring.database.address}")
     private String databaseAddress;
 
@@ -38,9 +39,7 @@ public class DBConnectionConfiguration {
     @Bean
     public Connection getConnection() throws SQLException, ClassNotFoundException, ValidationParamException {
         this.validateDataBaseParams();
-
-        Class.forName("org.postgresql.Driver");
-
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(databaseAddress, databaseUsername, databasePassword);
     }
 }

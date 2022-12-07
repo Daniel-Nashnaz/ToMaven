@@ -10,11 +10,7 @@ import simpe.spring.services.UserService;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * There is no option use @RequestMapping
- * Because we have @GetMapping and @PostMapping in same class
- * even if we try to do something like this @RequestMapping(value = "/users", method= {RequestMethod.GET, RequestMethod.POST})
- */
+
 @RestController
 public class UserController {
     @Autowired
